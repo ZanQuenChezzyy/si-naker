@@ -18,8 +18,7 @@ class CetakPdfController extends Controller
         // Load view blade yang akan di-convert ke PDF
         $pdf = Pdf::loadView('pdf.kartu-ak1', compact('kartu'));
 
-        // Atur ukuran kertas (contoh: A4 Portrait, sesuaikan jika AK-1 butuh ukuran spesifik)
-        $pdf->setPaper('A4', 'portrait');
+        $pdf->setPaper('legal', 'landscape');
 
         // Gunakan stream() untuk membuka PDF di tab baru (seperti openUrlInNewTab() di Filament)
         // Jika ingin langsung download, ganti ->stream() menjadi ->download()

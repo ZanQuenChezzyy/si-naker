@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PencariKerjas\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -27,7 +28,8 @@ class PencariKerjaForm
                                     TextInput::make('nik')
                                         ->label('Nomor Induk Kependudukan (NIK)')
                                         ->required()
-                                        ->numeric()
+                                        ->tel() // Mengganti numeric(), ini akan memunculkan numpad/keyboard angka di HP
+                                        ->rules(['digits:16']) // Validasi Laravel: memastikan murni angka dan pas 16 digit
                                         ->maxLength(16)
                                         ->minLength(16)
                                         ->prefixIcon('heroicon-m-identification')
@@ -96,6 +98,13 @@ class PencariKerjaForm
                             Section::make('Pendidikan & Pekerjaan')
                                 ->icon('heroicon-o-academic-cap')
                                 ->schema([
+                                    FileUpload::make('pas_photo')
+                                        ->label('Pas Foto 3x4')
+                                        ->image()
+                                        ->disk('public') // Simpan di storage/app/public
+                                        ->directory('pas-photo-pencaker')
+                                        ->maxSize(2048)
+                                        ->helperText('Unggah pas foto resmi ukuran 3x4 (Maks 2MB).'),
                                     Select::make('pendidikan_id')
                                         ->label('Pendidikan Terakhir')
                                         ->relationship('pendidikan', 'jenjang')

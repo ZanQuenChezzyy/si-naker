@@ -27,6 +27,7 @@ return new class extends Migration {
             $table->enum('status_kerja', ['Aktif', 'Sudah Bekerja'])
                 ->default('Aktif');
             $table->date('tanggal_daftar')->nullable();
+            $table->string('pas_photo', 255)->nullable();
             $table->timestamps();
         });
     }

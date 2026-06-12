@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
     'pendidikan_id',
     'status_kerja',
     'tanggal_daftar',
+    'pas_photo',
 ])]
 // #[Hidden(['kolom_rahasia'])]
 class PencariKerja extends Model
