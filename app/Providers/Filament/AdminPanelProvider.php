@@ -36,7 +36,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->spa()
             ->id('admin')
-            ->path('/')
+            ->path('/admin')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login(Login::class)
             ->profile(EditProfile::class)
@@ -46,8 +46,8 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'danger' => Color::Rose,
                 'gray' => Color::Gray,
-                'info' => Color::Blue,
-                'primary' => Color::Green,
+                'info' => Color::Cyan,
+                'primary' => Color::Blue,
                 'success' => Color::Emerald,
                 'warning' => Color::Orange,
             ])
