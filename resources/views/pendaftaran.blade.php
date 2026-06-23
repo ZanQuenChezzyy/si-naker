@@ -150,13 +150,13 @@
                                 <label class="block text-sm font-semibold text-slate-400 mb-3">Jenis Kelamin <span class="text-rose-500">*</span></label>
                                 <div class="flex gap-4">
                                     <label class="flex-1 cursor-pointer">
-                                        <input type="radio" name="jenis_kelamin" value="L" class="peer sr-only" {{ old('jenis_kelamin') == 'L' ? 'checked' : '' }}>
+                                        <input type="radio" name="jenis_kelamin" value="Laki-laki" class="peer sr-only" {{ old('jenis_kelamin') == 'Laki-laki' ? 'checked' : '' }}>
                                         <div class="rounded-xl border @error('jenis_kelamin') border-rose-500/50 @else border-slate-700/50 @enderror bg-slate-900/40 px-5 py-4 hover:border-blue-500 peer-checked:border-blue-500 peer-checked:bg-blue-500/10 peer-checked:text-blue-400 transition-all duration-300 text-center text-slate-300 font-medium flex items-center justify-center gap-2">
                                             Laki-laki
                                         </div>
                                     </label>
                                     <label class="flex-1 cursor-pointer">
-                                        <input type="radio" name="jenis_kelamin" value="P" class="peer sr-only" {{ old('jenis_kelamin') == 'P' ? 'checked' : '' }}>
+                                        <input type="radio" name="jenis_kelamin" value="Perempuan" class="peer sr-only" {{ old('jenis_kelamin') == 'Perempuan' ? 'checked' : '' }}>
                                         <div class="rounded-xl border @error('jenis_kelamin') border-rose-500/50 @else border-slate-700/50 @enderror bg-slate-900/40 px-5 py-4 hover:border-purple-500 peer-checked:border-purple-500 peer-checked:bg-purple-500/10 peer-checked:text-purple-400 transition-all duration-300 text-center text-slate-300 font-medium flex items-center justify-center gap-2">
                                             Perempuan
                                         </div>
@@ -215,9 +215,8 @@
                                 <div class="relative">
                                     <select name="status_kerja" class="w-full appearance-none bg-slate-900/40 border @error('status_kerja') border-rose-500/50 focus:border-rose-500 @else border-slate-700/50 focus:border-purple-500 @enderror rounded-xl px-5 py-3.5 text-white placeholder-slate-600 focus:ring-1 focus:ring-purple-500 focus:bg-slate-900/80 transition-all duration-300 outline-none cursor-pointer">
                                         <option value="" class="bg-slate-900 text-slate-400">Pilih Status Saat Ini</option>
-                                        <option value="belum_bekerja" class="bg-slate-900 text-white" {{ old('status_kerja') == 'belum_bekerja' ? 'selected' : '' }}>Belum Bekerja</option>
-                                        <option value="bekerja" class="bg-slate-900 text-white" {{ old('status_kerja') == 'bekerja' ? 'selected' : '' }}>Sedang Bekerja</option>
-                                        <option value="freelance" class="bg-slate-900 text-white" {{ old('status_kerja') == 'freelance' ? 'selected' : '' }}>Freelance / Pekerja Lepas</option>
+                                        <option value="Aktif" class="bg-slate-900 text-white" {{ old('status_kerja') == 'Aktif' ? 'selected' : '' }}>Aktif (Belum Bekerja)</option>
+                                        <option value="Sudah Bekerja" class="bg-slate-900 text-white" {{ old('status_kerja') == 'Sudah Bekerja' ? 'selected' : '' }}>Sudah Bekerja</option>
                                     </select>
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
                                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>

@@ -23,12 +23,12 @@ class PendaftaranController extends Controller
             'nama' => 'required|string|max:255',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
-            'jenis_kelamin' => 'required|in:L,P',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'alamat' => 'required|string',
             'no_hp' => 'required|string|max:15',
             'email' => 'required|email|unique:pencari_kerjas,email',
             'pendidikan_id' => 'required|exists:pendidikans,id',
-            'status_kerja' => 'required|string',
+            'status_kerja' => 'required|in:Aktif,Sudah Bekerja',
             'pas_photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
