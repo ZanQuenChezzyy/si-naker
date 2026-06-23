@@ -200,7 +200,7 @@
                                     <select name="pendidikan_id" class="w-full appearance-none bg-slate-900/40 border @error('pendidikan_id') border-rose-500/50 focus:border-rose-500 @else border-slate-700/50 focus:border-purple-500 @enderror rounded-xl px-5 py-3.5 text-white placeholder-slate-600 focus:ring-1 focus:ring-purple-500 focus:bg-slate-900/80 transition-all duration-300 outline-none cursor-pointer">
                                         <option value="" class="bg-slate-900 text-slate-400">Pilih Tingkat Pendidikan</option>
                                         @foreach($listPendidikan as $pendidikan)
-                                            <option value="{{ $pendidikan->id }}" class="bg-slate-900 text-white" {{ old('pendidikan_id') == $pendidikan->id ? 'selected' : '' }}>{{ $pendidikan->nama_pendidikan }}</option>
+                                            <option value="{{ $pendidikan->id }}" class="bg-slate-900 text-white" {{ old('pendidikan_id') == $pendidikan->id ? 'selected' : '' }}>{{ $pendidikan->jenjang }}</option>
                                         @endforeach
                                     </select>
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
@@ -308,6 +308,18 @@
                 }, 100 * index + 300);
             });
         });
+
+        // Auto-scroll ke error pertama jika validasi gagal
+        @if($errors->any())
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const firstError = document.querySelector('.text-rose-400');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 500);
+        });
+        @endif
     </script>
     <style>
         @keyframes shimmer {
